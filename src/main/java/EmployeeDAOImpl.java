@@ -11,13 +11,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public void create(Employee employee) {
         try (final Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement statement = connection.prepareStatement(
-                     "INSERT INTO employee (id, first_name, last_name, gender, age, city_id) VALUES ((?), (?), (?), (?), (?), (?))")) {
-            statement.setInt(1, employee.getId());
-            statement.setString(2, employee.getFirst_name());
-            statement.setString(3, employee.getLast_name());
-            statement.setString(4, employee.getGender());
-            statement.setInt(5, employee.getAge());
-            statement.setInt(6, employee.getCity_id());
+                     "INSERT INTO employee (first_name, last_name, gender, age, city_id) VALUES ((?), (?), (?), (?), (?))")) {
+            statement.setString(1, employee.getFirst_name());
+            statement.setString(2, employee.getLast_name());
+            statement.setString(3, employee.getGender());
+            statement.setInt(4, employee.getAge());
+            statement.setInt(5, employee.getCity_id());
             statement.executeQuery();
 
         } catch (SQLException e) {
@@ -30,7 +29,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Employee employee = new Employee();
         try (final Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement statement = connection.prepareStatement(
-                     "SELECT * FROM employee INNER JOIN city ON employee.city_id=city.city_id AND employee_id=(?)")) {
+                     "SELECT * FROM employee INNER JOIN city ON employee.city_id=city.city_id AND id=(?)")) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -78,7 +77,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public void updateAgeById(int id, int age) {
         try (final Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement statement = connection.prepareStatement(
-                     "UPDATE employee SET age=(?) WHERE employee_id=(?)")) {
+                     "UPDATE employee SET age=(?) WHERE id=(?)")) {
 
             statement.setInt(1, age);
             statement.setInt(2, id);
@@ -93,7 +92,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public void deleteById(int id) {
         try (final Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement statement = connection.prepareStatement(
-                     "DELETE FROM employee WHERE employee_id=(?)")) {
+                     "DELETE FROM employee WHERE id=(?)")) {
 
             statement.setInt(1, id);
             statement.executeQuery();
