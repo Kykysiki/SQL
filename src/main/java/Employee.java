@@ -1,11 +1,25 @@
 import java.util.Objects;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name = "employee")
 public class Employee {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "first_name")
     private String first_name;
+    @Column(name = "last_name")
     private String last_name;
+    @Column(name = "gender")
     private String gender;
+    @Column(name = "age")
     private int age;
+    @Column(name = "city_id")
     private int city_id;
 
     public Employee() {
@@ -19,7 +33,7 @@ public class Employee {
         this.city_id = city_id;
     }
 
-    public Employee(int id, String first_name, String last_name, String gender, int age, int city_id) {
+    public Employee(Long id, String first_name, String last_name, String gender, int age, int city_id) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -28,11 +42,11 @@ public class Employee {
         this.city_id = city_id;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -74,30 +88,5 @@ public class Employee {
 
     public void setCity_id(int city_id) {
         this.city_id = city_id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return id == employee.id && age == employee.age && city_id == employee.city_id && Objects.equals(first_name, employee.first_name) && Objects.equals(last_name, employee.last_name) && Objects.equals(gender, employee.gender);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, first_name, last_name, gender, age, city_id);
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
-                ", city_id=" + city_id +
-                '}';
     }
 }

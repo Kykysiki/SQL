@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c96d6e-e57b-441a-9f93-1551a9311932" name="Changes" comment="JDBC">
+    <list default="true" id="20c96d6e-e57b-441a-9f93-1551a9311932" name="Changes" comment="JDBC - 2">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EmployeeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EmployeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EmployeeDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,13 +53,14 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;hw&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/6/HibernateHomeWork&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -74,6 +78,12 @@
       <workItem from="1680090915892" duration="2775000" />
       <workItem from="1680094711421" duration="54000" />
       <workItem from="1680205648767" duration="2781000" />
+      <workItem from="1680208447550" duration="124000" />
+      <workItem from="1680699704392" duration="3106000" />
+      <workItem from="1681147260100" duration="868000" />
+      <workItem from="1681187553823" duration="165000" />
+      <workItem from="1681231537061" duration="396000" />
+      <workItem from="1681409077305" duration="1541000" />
     </task>
     <task id="LOCAL-00001" summary="JDBC">
       <created>1680094046924</created>
@@ -82,14 +92,33 @@
       <option name="project" value="LOCAL" />
       <updated>1680094046924</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="JDBC - 2">
+      <created>1680208504912</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680208504912</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JDBC" />
-    <option name="LAST_COMMIT_MESSAGE" value="JDBC" />
+    <MESSAGE value="JDBC - 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="JDBC - 2" />
   </component>
 </project>

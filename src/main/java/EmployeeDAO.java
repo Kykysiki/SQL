@@ -3,11 +3,7 @@ import java.util.List;
 public interface EmployeeDAO {
     void create(Employee employee);
 
-    Employee readById(int id);
+    Employee update(Employee employee);
 
-    List<Employee> readAll();
-
-    void updateAgeById(int id, int age);
-
-    void deleteById(int id);
+    void delete(Employee employee);
 }
