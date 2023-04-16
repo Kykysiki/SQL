@@ -14,12 +14,13 @@ public class Application {
         entityManager.getTransaction().begin();
         String jpqlQuery = "SELECT s FROM Employee s WHERE s.age > :minAge";
         TypedQuery<Employee> query = entityManager.createQuery(jpqlQuery, Employee.class);
+        query.setParameter("minAge", 30);
         List<Employee> employee = query.getResultList();
         entityManager.getTransaction().commit();
         for (Employee employee1 : employee) {
-            System.out.println("Student ID: " + employee1.getId());
-            System.out.println("Student Name: " + employee1.getLast_name());
-            System.out.println("Student Age: " + employee1.getAge());
+            System.out.println("Имя: " + employee1.getFirstName());
+            System.out.println("Фамилия: " + employee1.getLastName());
+            System.out.println("Возвраст: " + employee1.getAge());
             System.out.println("------------");
         }
         entityManager.close();

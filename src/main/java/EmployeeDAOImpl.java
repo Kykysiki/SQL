@@ -22,6 +22,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         entityManagerFactory.close();
     }
+
     @Override
     public Employee update(Employee employee) {
         EntityManagerFactory entityManagerFactory =
@@ -40,6 +41,24 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         entityManagerFactory.close();
 
         return resultEmployee;
+    }
+
+    @Override
+    public Employee readById(Long id) {
+        EntityManagerFactory entityManagerFactory =
+                Persistence.createEntityManagerFactory("myPersistenceUnit");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+
+        Employee employee = entityManager.find(Employee.class, id);
+
+        transaction.commit();
+        entityManager.close();
+
+        entityManagerFactory.close();
+        return employee;
     }
 
     @Override

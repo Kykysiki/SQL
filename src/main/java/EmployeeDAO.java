@@ -5,5 +5,7 @@ public interface EmployeeDAO {
 
     Employee update(Employee employee);
 
+    Employee readById(Long id);
+
     void delete(Employee employee);
 }
