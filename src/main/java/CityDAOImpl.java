@@ -1,16 +1,9 @@
-import org.hibernate.SessionFactory;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class CityDAOImpl implements CityDAO {
-    private SessionFactory sessionFactory;
-
-    public CityDAOImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     @Override
     public void create(City city) {
