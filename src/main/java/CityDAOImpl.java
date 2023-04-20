@@ -3,10 +3,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class EmployeeDAOImpl implements EmployeeDAO {
+public class CityDAOImpl implements CityDAO {
 
     @Override
-    public void create(Employee employee) {
+    public void create(City city) {
         EntityManagerFactory entityManagerFactory =
                 Persistence.createEntityManagerFactory("myPersistenceUnit");
 
@@ -15,7 +15,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
-        entityManager.persist(employee);
+        entityManager.persist(city);
 
         transaction.commit();
         entityManager.close();
@@ -24,7 +24,25 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public Employee update(Employee employee) {
+    public City readById(int cityId) {
+        EntityManagerFactory entityManagerFactory =
+                Persistence.createEntityManagerFactory("myPersistenceUnit");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+
+        City city = entityManager.find(City.class, cityId);
+
+        transaction.commit();
+        entityManager.close();
+
+        entityManagerFactory.close();
+        return city;
+    }
+
+    @Override
+    public City update(City city) {
         EntityManagerFactory entityManagerFactory =
                 Persistence.createEntityManagerFactory("myPersistenceUnit");
 
@@ -33,36 +51,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
-        Employee resultEmployee = entityManager.merge(employee);
+        City resultCity = entityManager.merge(city);
 
         transaction.commit();
         entityManager.close();
 
         entityManagerFactory.close();
 
-        return resultEmployee;
+        return resultCity;
     }
 
     @Override
-    public Employee readById(Long id) {
-        EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("myPersistenceUnit");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-
-        Employee employee = entityManager.find(Employee.class, id);
-
-        transaction.commit();
-        entityManager.close();
-
-        entityManagerFactory.close();
-        return employee;
-    }
-
-    @Override
-    public void delete(Employee employee) {
+    public void delete(City city) {
         EntityManagerFactory entityManagerFactory =
                 Persistence.createEntityManagerFactory("myPersistenceUnit");
 
@@ -71,8 +71,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
-        employee = entityManager.getReference(Employee.class, employee.getId());
-        entityManager.remove(employee);
+        city = entityManager.getReference(City.class, city.getCityId());
+        entityManager.remove(city);
 
         transaction.commit();
         entityManager.close();
